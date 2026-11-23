@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b28kx4ftxha1l"]
+
+[ext_resource type="Texture2D" uid="uid://b7pipl7hjw7wp" path="res://Sprites/RedCoin.png" id="1_yv8rh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc4pu"]
+size = Vector2(100, 121)
+
+[node name="CoinScene" type="Node2D" unique_id=1272544057]
+
+[node name="Coin" type="RigidBody2D" parent="." unique_id=1428800609]
+z_index = -1
+position = Vector2(522, 0)
+collision_layer = 2
+collision_mask = 2
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin" unique_id=607770221]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_yv8rh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin" unique_id=52193525]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_mc4pu")
