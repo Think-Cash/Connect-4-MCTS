@@ -6,6 +6,7 @@ using namespace godot;
 void GDExample::_bind_methods() {
 
 	ClassDB::bind_method(D_METHOD("get_speed"), &GDExample::get_speed);
+	ClassDB::bind_method(D_METHOD("AIMove", "board"), &GDExample::AIMove);
 	ClassDB::bind_method(D_METHOD("set_speed", "p_speed"), &GDExample::set_speed);
 
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,1000,0.01"), "set_speed", "get_speed");
@@ -34,4 +35,10 @@ void GDExample::set_speed(const double p_speed) {
 
 double GDExample::get_speed() const {
 	return speed;
+}
+
+int GDExample::AIMove(const Array &board) {
+	int slot = 0;
+	slot = dist(mt);
+	return slot;
 }

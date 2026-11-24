@@ -18,15 +18,16 @@ size = Vector2(10.800002, 86.500015)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qnfo"]
 size = Vector2(3, 3)
 
-[node name="MainScene" type="Node2D" unique_id=333713535 node_paths=PackedStringArray("player")]
+[node name="MainScene" type="Node2D" unique_id=333713535 node_paths=PackedStringArray("player", "AI")]
 script = ExtResource("1_lgr22")
 coin_scene = ExtResource("6_3dxm6")
 player = NodePath("Player")
+AI = NodePath("Falling coin cpp")
 
 [node name="Falling coin cpp" type="GDExample" parent="." unique_id=579185184]
 speed = 356.06
 texture_filter = 1
-position = Vector2(500, 950146.75)
+position = Vector2(500, 864511.2)
 scale = Vector2(10, 10)
 texture = ExtResource("3_r0du0")
 

@@ -1,5 +1,6 @@
 #pragma once
 #include <godot_cpp/classes/sprite2d.hpp>
+#include <random>
 
 namespace godot {
 
@@ -10,6 +11,9 @@ namespace godot {
 		double time_passed;
 		double speed;
 		Vector2 position = Vector2(500.f, 0.f);
+		std::random_device rd;
+		std::mt19937 mt(rd());
+		std::uniform_int_distribution<int> dist(0, 6);
 
 	protected:
 		static void _bind_methods();
@@ -20,6 +24,7 @@ namespace godot {
 
 		void _process(double delta) override;
 		void set_speed(const double p_speed);
+		int AIMove(const Array &board);
 		double get_speed() const;
 	};
 

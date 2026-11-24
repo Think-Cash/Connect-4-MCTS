@@ -1,6 +1,7 @@
 extends Node2D
 @export var coin_scene : PackedScene
 @export var player : Node2D
+@export var AI : GDExample
 var playerTurn := true
 var newCoin
 var board = []
@@ -29,6 +30,10 @@ func updateBoard(yellowCoin: bool, slotValue: float) -> void:
 	print("---------------------")
 	for i in range (5,-1,-1):
 			print(board[i])
+	if playerTurn:
+		#AI.AIMove(board)
+		pass
+	playerTurn = !playerTurn
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		newCoin = coin_scene.instantiate() as Node2D
@@ -44,5 +49,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

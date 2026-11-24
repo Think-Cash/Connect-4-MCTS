@@ -9,7 +9,7 @@ var coinSpawnPoint = Vector2(-100,0)
 func _input(event):
 	if event is InputEventMouse:
 		position = event.position
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var overlaps = collision.get_overlapping_bodies()
 	if overlaps.is_empty():
 		glow.position = Vector2(-100,0)
