@@ -39,6 +39,10 @@ double GDExample::get_speed() const {
 
 int GDExample::AIMove(const Array &board) {
 	int slot = 0;
+	std::random_device rand;
+	std::mt19937 mt(rand());
+	std::uniform_int_distribution<int> dist(0, 6);
+
 	slot = dist(mt);
 	return slot;
 }

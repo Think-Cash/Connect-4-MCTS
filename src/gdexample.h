@@ -6,15 +6,12 @@ namespace godot {
 
 	class GDExample : public Sprite2D {
 		GDCLASS(GDExample, Sprite2D)
-
+	
 	private:
 		double time_passed;
 		double speed;
 		Vector2 position = Vector2(500.f, 0.f);
-		std::random_device rd;
-		std::mt19937 mt(rd());
-		std::uniform_int_distribution<int> dist(0, 6);
-
+		
 	protected:
 		static void _bind_methods();
 
