@@ -11,6 +11,10 @@ namespace godot {
 		double time_passed;
 		double speed;
 		Vector2 position = Vector2(500.f, 0.f);
+		struct int2 {
+			int x;
+			int y;
+		};
 		
 	protected:
 		static void _bind_methods();
@@ -22,6 +26,7 @@ namespace godot {
 		void _process(double delta) override;
 		void set_speed(const double p_speed);
 		int AIMove(Array board);
+		bool WinCheck(Array board, int slot);
 		double get_speed() const;
 	};
 

@@ -36,17 +36,26 @@ func updateBoard(yellowCoin: bool, slotValue: float) -> void:
 	print("---------------------")
 	for i in range (5,-1,-1):
 			print(board[i])
+	if AI.WinCheck(board, slot):
+		playerTurn = false
+		print("WIN FOR AI" if yellowCoin else "WIN FOR PLAYER")
+		if yellowCoin:
+			spawnAICoin(slot)
+		return
 	playerTurn = !playerTurn
 	if !playerTurn:
 		updateBoard(true, AI.AIMove(board))
 	else:
 		spawnAICoin(slot)
 func _unhandled_input(event) -> void:
+	var playerSlot: Vector2 = player.get_current_slot()
+	if playerSlot == Vector2(-100,0):
+		return #out of bounds
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and playerTurn and timer.is_stopped():
 		newCoin = coin_scene.instantiate() as Node2D
-		newCoin.global_position = player.get_current_slot() * 10
+		newCoin.global_position = playerSlot * 10
 		add_child(newCoin)
-		updateBoard(false, player.get_current_slot().x)
+		updateBoard(false, playerSlot.x)
 		timer.start()
 func spawnAICoin(slot: int):
 	newCoin = coin_scene.instantiate() as Node2D

@@ -24,10 +24,9 @@ coin_scene = ExtResource("6_3dxm6")
 player = NodePath("Player")
 AI = NodePath("Falling coin cpp")
 
-[node name="Falling coin cpp" type="GDExample" parent="." unique_id=579185184]
-speed = 356.06
+[node name="Falling coin cpp" type="Sprite2D" parent="." unique_id=579185184]
 texture_filter = 1
-position = Vector2(500, 31620.582)
+position = Vector2(500, 150155.44)
 scale = Vector2(10, 10)
 texture = ExtResource("3_r0du0")
 
