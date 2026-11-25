@@ -37,12 +37,20 @@ double GDExample::get_speed() const {
 	return speed;
 }
 
-int GDExample::AIMove(const Array &board) {
+int GDExample::AIMove(Array board) {
 	int slot = 0;
 	std::random_device rand;
 	std::mt19937 mt(rand());
 	std::uniform_int_distribution<int> dist(0, 6);
-
-	slot = dist(mt);
+	Array top_row;//to use a 2d array from godot in c++ you have to first break it down
+	Variant top_space;//then grab it as a variant, which is a mystery box that could contain any type
+	do {
+		slot = dist(mt);
+		top_row = board[5];
+		top_space = top_row[slot];
+		print_line("top space is " + String(top_space) + " slot is " + String::num_int64(slot));
+	}
+	while (int(top_space) != 0);//then cast it and hope for the best
+		
 	return slot;
 }

@@ -21,7 +21,7 @@ namespace godot {
 
 		void _process(double delta) override;
 		void set_speed(const double p_speed);
-		int AIMove(const Array &board);
+		int AIMove(Array board);
 		double get_speed() const;
 	};
 

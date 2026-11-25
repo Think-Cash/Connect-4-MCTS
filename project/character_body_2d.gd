@@ -2,7 +2,6 @@ extends CharacterBody2D
 @export var collision: Area2D
 @export var glow : Sprite2D
 
-var playerTurn := true
 # default point off screen, will fail if spawn is equal to this value, e.g, not a slot
 var coinSpawnPoint = Vector2(-100,0)
 

@@ -27,7 +27,7 @@ AI = NodePath("Falling coin cpp")
 [node name="Falling coin cpp" type="GDExample" parent="." unique_id=579185184]
 speed = 356.06
 texture_filter = 1
-position = Vector2(500, 1925066.9)
+position = Vector2(500, 31620.582)
 scale = Vector2(10, 10)
 texture = ExtResource("3_r0du0")
 
@@ -115,3 +115,6 @@ texture = ExtResource("3_cm0pq")
 
 [node name="col_Player" type="CollisionShape2D" parent="Player/Area2D" unique_id=1736838017]
 shape = SubResource("RectangleShape2D_3qnfo")
+
+[node name="Timer" type="Timer" parent="." unique_id=1424112376]
+one_shot = true

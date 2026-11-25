@@ -2,6 +2,7 @@ extends Node2D
 @export var coin_scene : PackedScene
 @export var player : Node2D
 @export var AI : GDExample
+@onready var timer := $Timer 
 var spr_yellow_coin = preload('res://Sprites/YellowCoin.png')
 var playerTurn := true
 var newCoin
@@ -27,7 +28,8 @@ func updateBoard(yellowCoin: bool, slotValue: float) -> void:
 		slot = 5
 	else:
 		slot = 6
-	if height[slot] == 5:
+	if height[slot] == 6:
+		print("ERROR - Column full")
 		return
 	board[height[slot]][slot] = 1 if yellowCoin else 2
 	height[slot] += 1
@@ -40,11 +42,12 @@ func updateBoard(yellowCoin: bool, slotValue: float) -> void:
 	else:
 		spawnAICoin(slot)
 func _unhandled_input(event) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and playerTurn and timer.is_stopped():
 		newCoin = coin_scene.instantiate() as Node2D
 		newCoin.global_position = player.get_current_slot() * 10
 		add_child(newCoin)
 		updateBoard(false, player.get_current_slot().x)
+		timer.start()
 func spawnAICoin(slot: int):
 	newCoin = coin_scene.instantiate() as Node2D
 	var coinPos = Vector2(0,-202)
